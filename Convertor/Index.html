@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+    
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Temperature Convertor</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row bg_row">
+            <div class="col-12 align-self-center">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 col-11 temp_card">
+                        <h5 class="mb-4">Temperature Convertor</h5>
+                        <div class="mb-3">
+                            <input type="number" name="inputTemp" id="inputTemp" placeholder="Enter degree">
+                        </div>
+                        <div class="mb-3">
+                            <p>Temperature present in: </p>
+                            <label for="temp" class="me-3">
+                                <input type="radio" name="temp" value="Celsius" id="">
+                                Celsius
+                            </label>
+                            <label for="temp">
+                                <input type="radio" name="temp" value="Fahrenheit" id="">
+                                Fahrenheit
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Result</label>
+                            <span id="result"></span>
+                        </div>
+                        <input type="submit" value="Convert" class="convert_btn" onclick="convertTemp()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function convertTemp() {
+            var inputValue = document.getElementById('inputTemp').value
+
+            var temp = document.querySelector('input[name = temp]:checked').value
+
+            if (temp === 'Celsius') {
+                document.getElementById("result").innerHTML = ((inputValue * 1.8) + 32)
+            }
+            else if (temp === 'Fahrenheit') {
+                document.getElementById("result").innerHTML = (inputValue - 32) / 1.8
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
